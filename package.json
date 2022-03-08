@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "name": "itmo-glossary-docker",
+  "version": "1.0.0",
+  "description": "Glossary for gratuation work in ITMO (Client-server application based on SIP protocol)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rolledm/itmo-glossary-docker.git"
+  },
+  "author": "Vladislav Migachev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rolledm/itmo-glossary-docker/issues"
+  },
+  "homepage": "https://github.com/Rolledm/itmo-glossary-docker#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
