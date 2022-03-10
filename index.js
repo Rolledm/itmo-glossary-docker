@@ -24,8 +24,32 @@ class CLoadStrategyCSV {
     }
 };
 
-let letter = '';
-let output = '';
+class CPageGenerator {
+    constructor(data) {
+        this.m_data = data;
+    }
+
+    GeneratePage() {
+        let letter = '';
+        let output = '';
+
+        for (let iter in this.m_data) {
+            if (letter != this.m_data[iter][0][0]) {
+                letter = this.m_data[iter][0][0];
+                output += `<h2>${letter}</h2>`;
+            }
+            output += `<p><a href=#${iter}>${this.m_data[iter][0]}</a></p>`;
+        }
+        
+        output += '<hr>'
+        
+        for (let iter in this.m_data) {
+            output += `<p><a name=${iter}><b>${this.m_data[iter][0]}</b><br>${this.m_data[iter][1]}</a></p>`;
+        }
+
+        return output;
+    }
+}
 
 let loader = new CLoader();
 let loaderStrategy = new CLoadStrategyCSV();
@@ -33,19 +57,8 @@ loader.SetLoaderStrategy(loaderStrategy);
 
 let data = loader.LoadData();
 
-for (let iter in data) {
-    if (letter != data[iter][0][0]) {
-        letter = data[iter][0][0];
-        output += `<h2>${letter}</h2>`;
-    }
-    output += `<p><a href=#${iter}>${data[iter][0]}</a></p>`;
-}
-
-output += '<hr>'
-
-for (let iter in data) {
-    output += `<p><a name=${iter}><b>${data[iter][0]}</b><br>${data[iter][1]}</a></p>`;
-}
+let pageGenerator = new CPageGenerator(data);
+let output = pageGenerator.GeneratePage();
 
 let app = express();
 
