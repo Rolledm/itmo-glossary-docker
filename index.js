@@ -31,7 +31,7 @@ class CPageGenerator {
 
     GeneratePage() {
         let letter = '';
-        let output = '';
+        let output = '<style>\nbody {background-color: silver;}\n</style>';
 
         for (let iter in this.m_data) {
             if (letter != this.m_data[iter][0][0]) {
