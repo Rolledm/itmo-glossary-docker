@@ -14,7 +14,7 @@ class CLoader {
 class CLoadStrategyCSV {
     LoadData() {
         let file = fs.readFileSync('./res/res.csv', 'utf8').split('\n');
-        let arr = []
+        let arr = [] # arr
 
         for (let iter in file) {
             let temp = file[iter].split(';');
